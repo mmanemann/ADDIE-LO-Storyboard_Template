@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c6390a9 (initial commit)
 import React, { useState } from 'react';
 import { Monitor, Tablet, Smartphone, ArrowRight } from 'lucide-react';
 
@@ -139,6 +142,7 @@ const DeviceMatrix = () => {
   };
 
   const currentPhase = addiePhases[selectedPhase];
+<<<<<<< HEAD
 
   return (
     <div className="w-full max-w-6xl mx-auto p-6 bg-white">
@@ -292,27 +296,160 @@ export default DeviceMatrix;
 =======
 import logo from './logo.svg';
 import './App.css';
+=======
+>>>>>>> c6390a9 (initial commit)
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="w-full max-w-6xl mx-auto p-6 bg-white">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          ADDIE Device Matrix
+        </h1>
+        <p className="text-gray-600">
+          Interactive storyboard framework for drag-and-drop activity design
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {Object.entries(addiePhases).map(([key, phase]) => (
+          <button
+            key={key}
+            onClick={() => setSelectedPhase(key)}
+            className={`px-4 py-2 rounded-lg font-medium transition-all ${
+              selectedPhase === key
+                ? phase.headerColor + ' text-white shadow-md'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            {phase.name}
+          </button>
+        ))}
+      </div>
+
+      <div className={`border-2 rounded-lg ${currentPhase.color} overflow-hidden`}>
+        <div className={`${currentPhase.headerColor} text-white px-6 py-4`}>
+          <h2 className="text-2xl font-bold">{currentPhase.name} Phase</h2>
+        </div>
+
+        <div className="p-6 space-y-6">
+          <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Monitor className="w-6 h-6 text-gray-700" />
+              <h3 className="text-xl font-semibold text-gray-800">Desktop</h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <span className="font-medium text-gray-700">Layout:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.desktop.layout}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Interaction:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.desktop.interaction}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Feedback:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.desktop.feedback}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Considerations:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.desktop.considerations}</p>
+              </div>
+              <div className="pt-3 border-t-2 border-blue-100">
+                <div className="flex items-start gap-2">
+                  <ArrowRight className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium text-blue-700">Information Flow:</span>
+                    <p className="text-gray-700 mt-1">{currentPhase.desktop.infoFlow}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Tablet className="w-6 h-6 text-gray-700" />
+              <h3 className="text-xl font-semibold text-gray-800">Tablet</h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <span className="font-medium text-gray-700">Layout:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.tablet.layout}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Interaction:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.tablet.interaction}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Feedback:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.tablet.feedback}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Considerations:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.tablet.considerations}</p>
+              </div>
+              <div className="pt-3 border-t-2 border-purple-100">
+                <div className="flex items-start gap-2">
+                  <ArrowRight className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium text-purple-700">Information Flow:</span>
+                    <p className="text-gray-700 mt-1">{currentPhase.tablet.infoFlow}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Smartphone className="w-6 h-6 text-gray-700" />
+              <h3 className="text-xl font-semibold text-gray-800">Mobile</h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <span className="font-medium text-gray-700">Layout:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.mobile.layout}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Interaction:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.mobile.interaction}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Feedback:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.mobile.feedback}</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Considerations:</span>
+                <p className="text-gray-600 mt-1">{currentPhase.mobile.considerations}</p>
+              </div>
+              <div className="pt-3 border-t-2 border-green-100">
+                <div className="flex items-start gap-2">
+                  <ArrowRight className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium text-green-700">Information Flow:</span>
+                    <p className="text-gray-700 mt-1">{currentPhase.mobile.infoFlow}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p className="text-sm text-gray-600">
+          <span className="font-medium">Note:</span> Information Flow describes how content, state, and user actions 
+          move through the interface on each device type. Understanding these patterns ensures your drag-and-drop 
+          activity maintains logical progression and accessibility regardless of screen size or input method.
+        </p>
+      </div>
     </div>
   );
-}
+};
 
+<<<<<<< HEAD
 export default App;
 >>>>>>> 9d934f5 (Initialize project using Create React App)
+=======
+export default DeviceMatrix;
+>>>>>>> c6390a9 (initial commit)
